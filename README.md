@@ -3,7 +3,6 @@
 
 FinTrack is a full-stack web application designed to empower users to take control of their finances by providing a clean, intuitive dashboard for tracking income, expenses, and visualizing spending habits. The application features a secure, token-based authentication system and a RESTful API backend built with Node.js and Express that serves a dynamic React frontend.
 
-
 ---
 
 ## Core Features
@@ -15,16 +14,24 @@ FinTrack is a full-stack web application designed to empower users to take contr
 * **🔍 Filtering & Pagination:** Efficiently navigate through transaction history with server-side pagination and filter entries by a specific date range.
 * **🔒 Secure Authentication:** A complete user registration and login system using JSON Web Tokens (JWT) to ensure each user's financial data is private and secure.
 
+### Application Demonstration
+
+Here is a quick look at the FinTrack application in action:
+
+![FinTrack Demo GIF](project_gif.gif)
+
+You can see the full video demonstration on YouTube: [https://youtu.be/i8cc_5N3x7c](https://youtu.be/i8cc_5N3x7c)
+
 ---
 
 ## Tech Stack
 
-| Category         | Technologies                                             |
+| Category         | Technologies                                             |
 | :--------------- | :------------------------------------------------------- |
-| **Frontend** | React, Vite, Tailwind CSS, Recharts (for charts), Axios  |
-| **Backend** | Node.js, Express.js                                      |
-| **Database** | MongoDB with Mongoose ODM                                |
-| **Authentication** | JSON Web Tokens (JWT), bcrypt                            |
+| **Frontend** | React, Vite, Tailwind CSS, Recharts (for charts), Axios  |
+| **Backend** | Node.js, Express.js                                      |
+| **Database** | MongoDB with Mongoose ODM                                |
+| **Authentication** | JSON Web Tokens (JWT), bcrypt                            |
 
 ---
 
@@ -39,14 +46,14 @@ The backend follows a modular, feature-oriented structure to separate concerns a
 ```
 
 backend/
-├── config/         \# Database configuration (db.js)
-├── controllers/    \# Application logic for handling requests
-├── middleware/     \# Custom middleware (e.g., auth, errorHandler)
-├── models/         \# Mongoose schemas for MongoDB collections
-├── routes/         \# API route definitions (e.g., transactions.js)
-├── uploads/        \# Directory for storing user-uploaded receipts
-├── utils/          \# Utility functions (e.g., ocrParser.js)
-└── server.js       \# Main Express server entry point
+├── config/         \# Database configuration (db.js)
+├── controllers/    \# Application logic for handling requests
+├── middleware/     \# Custom middleware (e.g., auth, errorHandler)
+├── models/         \# Mongoose schemas for MongoDB collections
+├── routes/         \# API route definitions (e.g., transactions.js)
+├── uploads/        \# Directory for storing user-uploaded receipts
+├── utils/          \# Utility functions (e.g., ocrParser.js)
+└── server.js       \# Main Express server entry point
 
 ```
 
@@ -58,17 +65,17 @@ The frontend is built with React (using Vite) and organized by feature and funct
 
 frontend/
 └── src/
-├── api/          \# Axios instance and API call definitions (axios.js)
-├── assets/       \# Static assets like images and logos
-├── components/   \# Reusable React components
-│   ├── common/   \# General-purpose components (Button, Spinner)
-│   ├── dashboard/\# Components specific to the dashboard page
-│   └── layout/   \# Layout components (Sidebar, Topbar)
-├── context/      \# React Context providers (e.g., AuthContext)
-├── hooks/        \# Custom React hooks (e.g., useAuth)
-├── pages/        \# Top-level page components for routing
-├── utils/        \# Utility functions (e.g., formatters.js, constants.js)
-└── App.jsx       \# Root application component with routing setup
+├── api/          \# Axios instance and API call definitions (axios.js)
+├── assets/       \# Static assets like images and logos
+├── components/   \# Reusable React components
+│   ├── common/   \# General-purpose components (Button, Spinner)
+│   ├── dashboard/\# Components specific to the dashboard page
+│   └── layout/   \# Layout components (Sidebar, Topbar)
+├── context/      \# React Context providers (e.g., AuthContext)
+├── hooks/        \# Custom React hooks (e.g., useAuth)
+├── pages/        \# Top-level page components for routing
+├── utils/        \# Utility functions (e.g., formatters.js, constants.js)
+└── App.jsx       \# Root application component with routing setup
 
 ````
 
@@ -139,10 +146,10 @@ Now, let's set up the React frontend. Open a **new terminal window** so you can 
   * Navigate to the frontend directory:
 
     ```bash
-    cd frontend
+    cd ../frontend
     ```
 
-    *(If you're in the same terminal, you would navigate from the `backend` folder with `cd ../frontend`)*
+    *(If you opened a new terminal, navigate from the main directory: `cd frontend`)*
 
   * Install the required npm packages:
 
@@ -175,15 +182,15 @@ You can now register a new user and start using the application\!
 
 The backend provides the following RESTful API endpoints:
 
-| Method   | Route                   | Description                            | Protected |
+| Method   | Route                   | Description                            | Protected |
 | :------- | :---------------------- | :------------------------------------- | :-------- |
-| `POST`   | `/api/auth/register`    | Register a new user.                   | No        |
-| `POST`   | `/api/auth/login`       | Log in a user and get a JWT.           | No        |
-| `GET`    | `/api/auth/me`          | Get the current logged-in user's data. | Yes       |
-| `GET`    | `/api/transactions`     | Get all transactions for a user.       | Yes       |
-| `POST`   | `/api/transactions`     | Create a new transaction.              | Yes       |
-| `DELETE` | `/api/transactions/:id` | Delete a specific transaction.         | Yes       |
-| `POST`   | `/api/receipts`         | Upload a receipt for OCR processing.   | Yes       |
+| `POST`   | `/api/auth/register`    | Register a new user.                   | No        |
+| `POST`   | `/api/auth/login`       | Log in a user and get a JWT.           | No        |
+| `GET`    | `/api/auth/me`          | Get the current logged-in user's data. | Yes       |
+| `GET`    | `/api/transactions`     | Get all transactions for a user.       | Yes       |
+| `POST`   | `/api/transactions`     | Create a new transaction.              | Yes       |
+| `DELETE` | `/api/transactions/:id` | Delete a specific transaction.         | Yes       |
+| `POST`   | `/api/receipts`         | Upload a receipt for OCR processing.   | Yes       |
 
 ```
 ```
